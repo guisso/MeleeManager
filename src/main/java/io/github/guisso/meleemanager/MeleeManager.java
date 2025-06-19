@@ -46,7 +46,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
- * Manages disputes between players.
+ * Manages disputes between players
  * 
  * @author Luis Guisso &lt;luis.guisso at ifnmg.edu.br&gt;
  * @version 0.2
