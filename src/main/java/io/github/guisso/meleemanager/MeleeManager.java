@@ -47,15 +47,15 @@ import java.util.stream.Collectors;
 
 /**
  * Manages disputes between players
- * 
+ *
  * @author Luis Guisso &lt;luis.guisso at ifnmg.edu.br&gt;
  * @version 0.2
  * @since 0.1, 2025-03-11
  */
 public final class MeleeManager {
 
-    private static final int ROUNDS = 200;
-    
+    private static int ROUNDS = 200;
+
     // Players and their scores
     private static Map<IPlayer, Integer> totalScore;
 
@@ -243,4 +243,19 @@ public final class MeleeManager {
         System.out.println(output);
         return score;
     }
+
+    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
+    public static int getROUNDS() {
+        return ROUNDS;
+    }
+
+    public static void setROUNDS(int ROUNDS) {
+        if (ROUNDS < 1) {
+            ROUNDS = 1;
+        } else {
+            MeleeManager.ROUNDS = ROUNDS;
+        }
+    }
+    //</editor-fold>
+
 }
