@@ -89,12 +89,22 @@ public final class MeleeManager {
             // Final result
             System.out.println("\n--- Final Result ---");
 
-            for (var entry : totalScore.entrySet()) {
-                System.out.println(" > %5d".formatted(entry.getValue())
-                        + " "
-                        + entry.getKey().getEngineName());
-            }
+            totalScore.entrySet()
+                    .stream()
+                    .sorted(Map.Entry.comparingByValue())
+                    .forEach(
+                            e -> System.out.println(
+                                    " > %5d ".formatted(e.getValue())
+                                    + ((IPlayer) e.getKey()).getDeveloperName()
+                                    + " : "
+                                    + ((IPlayer) e.getKey()).getEngineName()
+                            ));
 
+//            for (var entry : totalScore.entrySet()) {
+//                System.out.println(" > %5d".formatted(entry.getValue())
+//                        + " "
+//                        + entry.getKey().getEngineName());
+//            }
         } catch (ClassNotFoundException | IOException | NoSuchMethodException
                 | InstantiationException | IllegalAccessException
                 | IllegalArgumentException | InvocationTargetException ex) {
